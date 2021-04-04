@@ -38,7 +38,7 @@ func TestReadReturnsExpectedData(t *testing.T) {
 		"00000000  54 68 69 73 20 69 73 20  61 20 74 65 73 74 20 6d  |This is a test m|",
 		"00000010  65 73 73 61 67 65 21                              |essage!|",
 	}
-	receivedOutput := strings.Split(logOutput.String(), "\n")
+	receivedOutput := strings.Split(strings.TrimSuffix(logOutput.String(), "\n"), "\n")
 	if len(receivedOutput) != len(expectedOutput) {
 		t.Errorf("expected: len(receivedOutput) === %d, got: %d", len(expectedOutput), len(receivedOutput))
 	}
